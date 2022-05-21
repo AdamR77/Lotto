@@ -12,13 +12,19 @@ print("* * * * * * * * * * * * \n")
 your_nrs = []
 i =0
 draw = 1 #liczba kolejna zakładów
-hit = 0 
+hit = 0 #liczba trafień
 price = 3 #cena zakładu
-while True:
-    print(f"losowanie nr: {draw}")
+
+# pierwsza pętla -> powtarzanie: pobranie 6 liczb od użytkownika i wpisanie do listy, losowanie 6 liczb i wpisanie do listy,
+# porównanie obydwu list i komunikat o wygranej 3,4,5 lub 6 trafień, wyświetlenie całkowitego kosztu gry i sprawdzenie czu użytkownik chce grać dalej 
+# jeśli nie -> przerwanie pętli
+while True:  
+    print(f"typowanie liczb -> nr: {draw}")
     for x in range(6):
         i+=1    
     
+# druga pętla pobranie danych od użytkownika i sprawdzenie poprawności czy jest to liczba z predziału <1,49>  
+# 2 zagnieżdżone pętle wewnętrzne, pierwsza - pobranie liczby 2ga walidacja danych (znaki czy liczby)
         while True:
             print(f"Liczba {i}: ", end =" ")
             while True:
@@ -43,10 +49,10 @@ while True:
     print(f" wylosowane liczby to: {randomized} \n")
 
     hit = 0 #liczba trafień w losowaniu
-    for x in range(5):
-        if your_nrs[x] in randomized:
+    for x in your_nrs:
+        if x in randomized:
             hit += 1
-            print(" trafiłeś: ", {your_nrs[x]}  )
+            print(" trafiłeś: ", {x}  )
 
         if hit >= 3:
             print("trafiłeś {hit} liczb(y)")
